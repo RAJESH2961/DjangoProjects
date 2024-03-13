@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,31 +7,42 @@
   <title>Home Page</title>
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/home.css'%}">
 </head>
+<style>
+  
+ 
+</style>
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">User Login</a>
+<!--navbar navbar-expand-lg navbar-dark bg-dark --for darkmode-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <img src="{% static 'images/logo.jpeg' %}" alt="Logo" width=30 height=30>
+  <a class="navbar-brand" id="navbar">Online Bakery</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'home'%}">Home</a>
+        <a class="nav-link" href="{% url 'home' %}">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" >Login</a>
+        <a class="nav-link" href="{% url 'about'%}">About</a>
+      </li>
+      <li class="nav-item">
+        <button onclick=toggleMode() class="btn btn-light" >Light/Dark</button>
       </li>
       
       {% if user.is_authenticated %}
+      {% load static %}
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'user_logout'%}">Logout</a>
+        <a class="nav-link" href="{% url 'user_logout'%}" onclick="logout_alert()">Logout</a>
       </li>
       {% else %}
       <li class="nav-item">
         <a class="nav-link" href="{% url 'home'%}">Login</a>
       </li>
+      
 
       {%endif%}
     </ul>
@@ -42,5 +54,10 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="{% static 'js/function.js' %}"></script>
+ 
+  
+</script>
 </body>
 </html>

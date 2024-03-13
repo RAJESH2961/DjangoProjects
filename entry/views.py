@@ -21,10 +21,25 @@ def home(request):
         #return render(request, 'login.html')
         return render(request, 'home.html')
 
-
+#def user_login(request):
+ #   return render(request,'login.html')
     
+def register(request):
+    return render(request,'register.html')
+
 
 def user_logout(request):
     logout(request)
     # Redirect to a success page.
     return redirect('home')  # Redirect to the home page after logout.
+
+
+
+def about(request):
+    return render(request,'about.html')
+
+def chicken(request):
+    return render(request,'chicken.html')
+
+def disclaimer(request):
+    return render(request,'footer/disclaimer.html')

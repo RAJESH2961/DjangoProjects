@@ -1,0 +1,13 @@
+{% load static %}
+{% include 'navbar.html' %}
+
+{%block content%}
+<center>
+<img class="styled-image" src="{% static 'images/chicken1.jpeg' %}" alt="My image">
+<img class="styled-image" src="{% static 'images/chicken_pakoda.jpeg' %}" alt="My image">
+<img class="styled-image" src="{% static 'images/tandoori.jpeg' %}" alt="My image">
+</center>
+
+
+{% endblock %}
+{% include 'footer.html' %}
